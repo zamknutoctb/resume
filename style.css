@@ -390,7 +390,7 @@ a:hover {
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
-    /* Уменьшаем шрифты */
+    
     h2 {
         font-size: 2rem;
     }
@@ -451,8 +451,7 @@ a:hover {
         font-size: 1.1rem;
     }
 }
-
-@media (max-width: 568px) and (orientation: landscape) {
+ {
     .skill-box, .exp-box {
         width: 130px;
         padding: 8px;
