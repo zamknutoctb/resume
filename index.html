@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="character" id="character"></div>
+    <nav class="nav-menu">
+        <a href="#hero">Главная</a>
+        <a href="#education">Образование</a>
+        <a href="#skills">Навыки</a>
+        <a href="#experience">Опыт</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+    <div class="sections" id="sections">
+        <section id="hero" class="section">
+            <div class="parallax-front" style="background-image: url('layer1.png');"></div>
+            <div class="content hero-content">
+                <h2>Добро пожаловать!</h2>
+                <p>Меня зовут Чесноков Максим, мне 26</p>
+                <p>и вы попали на страницу моего сайта-резюме</p>
+            </div>
+        </section>
+        <section id="education" class="section">
+            <div class="parallax-front" style="background-image: url('layer2.png');"></div>
+            <div class="edu-container">
+                <div class="edu-left">
+                    <h3>ИГХТУ</h3>
+                    <p>Факультет техники, управления и цифровой инфраструктуры<br>Анализ данных и цифровые технологии<br>Очнаяя форма 2018–2022<br>Отчислился по семейным и финансовым обстотельствам</p>
+                </div>
+                <div class="edu-right">
+                    <h3>ИГХТУ</h3>
+                    <p>Факультет техники, управления и цифровой инфраструктуры<br>Анализ данных и цифровые технологии<br>Заочнаяя форма 2025–2027<br>Восстановился на то же направление</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="section">
+            <div class="parallax-front" style="background-image: url('layer3.png');"></div>
+    		<div class="skills-container">
+        	<!-- Верхний левый блок -->
+        	<div class="skill-box top-left">
+            	<h3>Frontend</h3>
+            	<ul>
+                	<li>HTML5</li>
+                	<li>CSS</li>
+                	<li>JS</li>
+            	</ul>
+        	</div>
+        
+        	<!-- Верхний правый блок -->
+        	<div class="skill-box top-right">
+            	<h3>Инсрументы</h3>
+            	<ul>
+                	<li>Git, Github</li>
+                	<li></li>
+                	<li></li>
+            	</ul>
+        	</div>
+        
+        	<!-- Центральный левый блок -->
+        	<div class="skill-box center-left">
+            	<h3>Backend</h3>
+            	<ul>
+                	<li>SQL</li>
+                	<li>Python, C++</li>
+                	<li>ML</li>
+            	</ul>
+        	</div>
+        
+        	<!-- Центральный правый блок (по центру вертикали) -->
+        	<div class="skill-box center-right">
+            	<h3>Soft skills</h3>
+            	<ul>
+                	<li>Обучаемость</li>
+                	<li>Креативность</li>
+                	<li>Аналитическое мышление</li>
+           	</ul>
+        	</div>
+    	</div>
+	</section>
+
+         <section id="experience" class="section">
+            <div class="parallax-front" style="background-image: url('layer4.png');"></div>
+            <div class="experience-container">
+                <div class="exp-box top-left">
+                    <h3>Техник по НИИ</h3>
+                    <p><strong>ООО "СервисЭнерго"</strong><br>2025-2026</p>
+                    <p>КИП, наладка оборудования</p>
+                </div>
+                <div class="exp-box top-right">
+                    <h3>Оператор пресса</h3>
+                    <p><strong>ООО"ТараТекс"</strong><br>2014 – 2025</p>
+                    <p>Термопечать</p>
+                </div>
+                <div class="exp-box center-left">
+                    <h3>Работниик цеха готовых изделий</h3>
+                    <p><strong>ИВНИИПИК</strong><br>2024</p>
+                    <p>Спайка и раскройка материалов</p>
+                </div>
+                <div class="exp-box center-right">
+                    <h3>Примечание</h3>
+                    <p>Попробовав себе в разных сферах</p>
+                    <p>хочу начать карьеру в сфере ИТ</p>
+                </div>
+            </div>
+        </section>
+	
+	<!-- Проекты -->
+        <section id="projects" class="section">
+            <div class="parallax-front" style="background-image: url('layer5.png');"></div>
+            <div class="content">
+                <h2>Проекты</h2>
+                <ul>
+                    <li>К сожалению пока что есть только пара учебных проектов на Github</li>
+		    <li>Ссылка есть в секции "Контакты"(сами проекты появятся позже)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="section">
+            <div class="parallax-front" style="background-image: url('layer6.png');"></div>
+            <div class="contact-box">
+                <h2>Контакты</h2>
+                <p>zamknutoctb@gmail.com</p>
+                <p>+7 (920) 676-94-89</p>
+                <p> <a href="#">GitHub</a> · <a href="https://t.me/zamknutoctb">Telegram</a></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Стрелки навигации -->
+    <button class="scroll-arrow arrow-left" id="arrowLeft">←</button>
+    <button class="scroll-arrow arrow-right" id="arrowRight">→</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

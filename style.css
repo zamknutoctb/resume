@@ -1,0 +1,436 @@
+/* Сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow-y: hidden;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Меню навигации */
+.nav-menu {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 10px 25px;
+    border-radius: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #0077ff;
+}
+
+/* Горизонтальный контейнер */
+.sections {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100vh;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 1;
+}
+
+/* Секции */
+.section {
+    flex: 0 0 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    overflow: hidden;
+}
+
+/* Передний слой параллакса */
+.parallax-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+/* Контент поверх слоя */
+.section .content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+}
+
+/* Смещаем контент на главной вправо */
+#hero .content {
+    margin-left: 20%;
+}
+
+/* Образование: два блока по краям */
+.edu-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+.edu-left, .edu-right {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    max-width: 300px;
+}
+.edu-left {
+    margin-left: 5%;
+}
+.edu-right {
+    margin-right: 5%;
+}
+
+/* Навыки – контейнер и блоки */
+.skills-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.skill-box {
+    position: absolute;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.skill-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffd966;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+}
+.skill-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+.skill-box li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+.skill-box.top-left {
+    top: 10%;
+    left: 5%;
+}
+.skill-box.top-right {
+    top: 10%;
+    right: 5%;
+}
+.skill-box.center-left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+.skill-box.center-right {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+/* Опыт – аналогично навыкам */
+.experience-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.exp-box {
+    position: absolute;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.exp-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffd966;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+}
+.exp-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+.exp-box.top-left {
+    top: 10%;
+    left: 5%;
+}
+.exp-box.top-right {
+    top: 10%;
+    right: 5%;
+}
+.exp-box.center-left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+.exp-box.center-right {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+.contact-box {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    padding: 30px 40px;
+    border-radius: 16px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    max-width: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.contact-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffd966;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+}
+.contact-box p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+.contact-box a {
+    color: #ffd966;
+    text-decoration: none;
+}
+.contact-box a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .contact-box {
+        position: static;
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+}
+/* Текст */
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+p, li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: white;
+}
+ul { list-style-position: inside; }
+a {
+    color: #ffd966;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Стрелки */
+.scroll-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scroll-arrow:hover {
+    background: rgba(0,0,0,0.8);
+}
+.arrow-left {
+    left: 20px;
+}
+.arrow-right {
+    right: 20px;
+}
+
+/* Персонаж */
+.character {
+    position: fixed;
+    width: 160px;
+    height: 160px;
+    background-image: url('character.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    z-index: 1000;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    transition: left 0.5s ease, bottom 0.5s ease, transform 0.5s ease;
+}
+
+.character.corner {
+    left: 20%;
+    bottom: 5%;
+    transform: none;
+}
+.character.center-bottom {
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+}
+.character.right-bottom {
+    left: calc(100% - 160px - 10%);
+    bottom: 5%;
+    transform: none;
+}
+
+/* Анимации кадров */
+@keyframes idle {
+    0% { background-position: 0 0; }
+    50% { background-position: -160px 0; }
+    100% { background-position: 0 0; }
+}
+@keyframes runRight {
+    0% { background-position: -320px 0; }
+    50% { background-position: -480px 0; }
+    100% { background-position: -320px 0; }
+}
+@keyframes runLeft {
+    0% { background-position: -640px 0; }
+    50% { background-position: -800px 0; }
+    100% { background-position: -640px 0; }
+}
+.character.idle {
+    animation: idle 0.8s steps(1) infinite;
+}
+.character.run-right {
+    animation: runRight 0.3s steps(1) infinite;
+}
+.character.run-left {
+    animation: runLeft 0.3s steps(1) infinite;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 1024px) {
+    .skill-box, .exp-box {
+        width: 200px;
+        padding: 15px;
+    }
+    .skill-box h3, .exp-box h3 {
+        font-size: 1.2rem;
+    }
+    .skill-box li, .exp-box p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        background-attachment: scroll;
+    }
+    .sections {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: auto;
+        scroll-snap-type: none;
+    }
+    .section {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        scroll-snap-align: none;
+    }
+    .nav-menu {
+        top: 10px;
+        flex-wrap: wrap;
+        width: 90%;
+        justify-content: center;
+    }
+    .scroll-arrow {
+        display: none;
+    }
+    .character {
+        display: none;
+    }
+    .skills-container, .experience-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    .skill-box, .exp-box {
+        position: static;
+        width: 90%;
+        max-width: 300px;
+        transform: none;
+    }
+}
