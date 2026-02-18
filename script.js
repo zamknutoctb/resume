@@ -198,7 +198,14 @@ character.classList.add('idle', 'corner');
 character.classList.remove('center-bottom', 'right-bottom');
 lastActiveIndex = 0;
 
+// --- Динамическая высота для мобильных (учёт адресной строки) ---
+function setVhProperty() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
 window.addEventListener('load', () => {
+    setVhProperty();
     updateActiveMenu();
     sectionsContainer.scrollLeft = 0;
     updateParallax();
@@ -207,5 +214,8 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', () => {
+    setVhProperty();
     updateParallax();
 });
+
+window.addEventListener('orientationchange', setVhProperty);
