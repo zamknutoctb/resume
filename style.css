@@ -64,7 +64,6 @@ body {
     position: relative;
     color: white;
     text-shadow: 1px 1px 3px black;
-    overflow: hidden;
 }
 
 .parallax-front {
@@ -96,7 +95,6 @@ body {
     margin-left: 20%;
 }
 
-/* Образование: два блока по краям */
 .edu-container {
     position: relative;
     z-index: 2;
@@ -121,7 +119,6 @@ body {
     margin-right: 5%;
 }
 
-/* Навыки и Опыт — по умолчанию абсолютное позиционирование (десктоп) */
 .skills-container,
 .experience-container {
     position: relative;
@@ -166,7 +163,6 @@ body {
 .exp-box.center-left { top: 50%; left: 5%; transform: translateY(-50%); }
 .exp-box.center-right { top: 50%; right: 5%; transform: translateY(-50%); }
 
-/* Контакты — абсолютный блок справа сверху */
 .contact-box {
     position: absolute;
     top: 20%;
@@ -248,33 +244,27 @@ a:hover {
     right: 20px;
 }
 
-/* Персонаж */
 .character {
     position: fixed;
-    width: 160px;
+    width: 160px;          
     height: 160px;
     background-image: url('character.png');
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 960px 160px;
     z-index: 1000;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     transition: left 0.5s ease, bottom 0.5s ease, transform 0.5s ease;
 }
-.character.corner {
-    left: 20%;
-    bottom: 5%;
-    transform: none;
+
+.character.idle {
+    animation: idle 0.8s steps(1) infinite;
 }
-.character.center-bottom {
-    left: 50%;
-    bottom: 5%;
-    transform: translateX(-50%);
+.character.run-right {
+    animation: runRight 0.3s steps(1) infinite;
 }
-.character.right-bottom {
-    left: calc(100% - 160px - 10%);
-    bottom: 5%;
-    transform: none;
+.character.run-left {
+    animation: runLeft 0.3s steps(1) infinite;
 }
 
 @keyframes idle {
@@ -292,14 +282,21 @@ a:hover {
     50% { background-position: -800px 0; }
     100% { background-position: -640px 0; }
 }
-.character.idle {
-    animation: idle 0.8s steps(1) infinite;
+
+.character.corner {
+    left: 20%;
+    bottom: 5%;
+    transform: none;
 }
-.character.run-right {
-    animation: runRight 0.3s steps(1) infinite;
+.character.center-bottom {
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
 }
-.character.run-left {
-    animation: runLeft 0.3s steps(1) infinite;
+.character.right-bottom {
+    left: calc(100% - 160px - 10%);
+    bottom: 5%;
+    transform: none;
 }
 
 .rotate-device-message {
@@ -389,6 +386,7 @@ a:hover {
     .character {
         width: 80px;
         height: 80px;
+        background-size: 480px 80px;
     }
     .character.corner {
         left: 5%;
@@ -421,6 +419,7 @@ a:hover {
     .character {
         width: 60px;
         height: 60px;
+        background-size: 360px 60px;
     }
     .character.right-bottom {
         left: calc(100% - 60px - 5%);
@@ -443,6 +442,7 @@ a:hover {
     .character {
         width: 50px;
         height: 50px;
+        background-size: 300px 50px;
     }
     .character.right-bottom {
         left: calc(100% - 50px - 5%);
