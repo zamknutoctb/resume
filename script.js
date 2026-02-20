@@ -13,6 +13,16 @@ let scrollTimeout = null;
 let lastScrollLeft = 0;
 let lastActiveIndex = 0;
 
+function setVhProperty() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setVhProperty();
+
+window.addEventListener('resize', setVhProperty);
+window.addEventListener('orientationchange', setVhProperty);
+
 sectionsContainer.addEventListener('wheel', (e) => {
     e.preventDefault();
     sectionsContainer.scrollLeft += e.deltaY;
@@ -183,6 +193,7 @@ character.classList.remove('center-bottom', 'right-bottom');
 lastActiveIndex = 0;
 
 window.addEventListener('load', () => {
+    setVhProperty(); 
     updateActiveMenu();
     sectionsContainer.scrollLeft = 0;
     updateParallax();
